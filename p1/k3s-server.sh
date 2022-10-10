@@ -1,5 +1,4 @@
 echo "*******Preparing OS********"
-yum install -y container-selinux net-tools telnet sshpass python3
 sudo sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 export K3S_KUBECONFIG_MODE="644"
