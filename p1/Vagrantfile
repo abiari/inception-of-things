@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
     server.vm.box = "centos/7"
     server.vm.hostname = "abiariS"
     server.vm.network "private_network", ip: "192.168.42.110"
-    server.vm.provision "shell", path: "k3s-server.sh"
+    server.vm.provision "shell", path: "./scripts/k3s-server.sh"
     server.vm.synced_folder ".", "/vagrant", disabled: true
     server.vm.provider "virtualbox" do |vb|
       vb.gui = true
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     serverworker.vm.box = "centos/7"
     serverworker.vm.hostname = "abiariSW"
     serverworker.vm.network "private_network", ip: "192.168.42.111"
-    serverworker.vm.provision "shell", path: "k3s-worker.sh"
+    serverworker.vm.provision "shell", path: "./scripts/k3s-worker.sh"
     serverworker.vm.synced_folder ".", "/vagrant", disabled: true
     serverworker.vm.provider "virtualbox" do |vb|
       vb.gui = true
