@@ -11,8 +11,9 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 sudo install -o root -g root -m 0755 ./kubectl /usr/local/bin/kubectl
 export PATH=$PATH:/usr/local/bin
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
-k3d cluster create p3Cluster
+# k3d cluster create p3Cluster
 
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# kubectl create namespace argocd
+# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# kubectl port-forward --address 0.0.0.0 svc/argocd-server -n argocd 8080:443
 
