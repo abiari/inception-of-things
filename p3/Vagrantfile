@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+ 
+Vagrant.configure("2") do |config|
+  config.vm.define "abiariS" do |server|
+    server.vm.box = "centos/7"
+    server.vm.hostname = "abiariS"
+    server.vm.network "forwarded_port", guest: 8080, host: 8080
+    server.vm.provision "shell", path: "./scripts/setup.sh"
+    server.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.customize ["modifyvm", :id, "--memory", 2048]
+      vb.customize ["modifyvm", :id, "--cpus", 3]
+      vb.customize ["modifyvm", :id, "--name", "abiariS"]
+      vb.customize ["modifyvm", :id, "--audio", "none"]
+    end
+  end
+end
