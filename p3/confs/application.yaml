@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/gruxme/inception-of-things
+    repoURL: https://github.com/Gruxme/inception-of-things
     targetRevision: dev-space
     path: dev
   destination: 
