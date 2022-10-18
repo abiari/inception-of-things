@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: willsApp
+spec:
+  selector:
+    matchLabels:
+      app: willsApp
+  template:
+    metadata:
+      labels:
+        app: willsApp
+    spec:
+      containers:
+      - name: willsApp
+        image: wil42/playground>v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
